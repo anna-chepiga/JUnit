@@ -6,15 +6,16 @@ import static org.junit.Assert.assertEquals;
 
 public class CelsiusToFahrenheitTest {
     @Test
-    public void convert() throws Exception {
+    public void testConvert() throws Exception {
+        double temperature = -723.6;
 
         CelsiusToFahrenheit c = new CelsiusToFahrenheit();
 
-        c.setCelsius(-723.6);
+        c.setCelsius(temperature);
 
         double result = c.convert();
 
-        double expected = (-723.6 * 1.8) + 32;
+        double expected = (temperature * 1.8) + 32;
 
         assertEquals(expected, result, 0.001);
     }

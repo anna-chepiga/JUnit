@@ -7,8 +7,7 @@ import static org.junit.Assert.*;
 public class CircleTest {
 
     @Test
-    public void calculateArea() throws Exception {
-
+    public void testCalculateArea() throws Exception {
         double radius = 89.24;
 
         Circle c = new Circle();

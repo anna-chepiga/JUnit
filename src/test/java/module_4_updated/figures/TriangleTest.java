@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 
 public class TriangleTest {
     @Test
-    public void calculateArea() throws Exception {
+    public void testCalculateArea() throws Exception {
         double height = 42.64;
         double width = 135.07;
 

@@ -6,8 +6,7 @@ import static org.junit.Assert.*;
 
 public class SquareTest {
     @Test
-    public void calculateArea() throws Exception {
-
+    public void testCalculateArea() throws Exception {
         double side = 500.23;
 
         Square s = new Square();

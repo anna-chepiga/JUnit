@@ -1,48 +1,38 @@
 package module_5.updated;
 
-import org.junit.BeforeClass;
 import org.junit.Test;
-
-import java.util.Arrays;
-import java.util.Random;
 
 import static org.junit.Assert.*;
 
+import java.util.Arrays;
+
 public class ArrayUtilsTest {
-    private static int[] array;
+    @Test
+    public void testCreateRandomArray() throws Exception {
+        int[] arrayZeros = new int[100];
 
-    @BeforeClass
-    public static void setUp() throws Exception {
-        array = new int[10];
+        int[] arrayRandom = new int[100];
+        arrayRandom = ArrayUtils.createRandomArray(arrayRandom);
+
+        assertNotEquals(arrayRandom, arrayZeros);
     }
 
     @Test
-    public void createRandomArray() throws Exception {
-        Random random = new Random();
-        for (int i = 0; i < array.length; i++) {
-            array[i] = random.nextInt(100);
-        }
+    public void testGetMinMax() throws Exception {
+        int[] array = new int[]{5, -20, 33, 8, 16, 400, -227};
 
-        assertArrayEquals(ArrayUtils.createRandomArray(array), array);
+        MinMaxPair actualPair = ArrayUtils.getMinMax(array);
+
+        int max = actualPair.getMax();
+        int min = actualPair.getMin();
+
+        assertEquals(max, 400);
+        assertEquals(min, -227);
     }
 
     @Test
-    public void getMinMax() throws Exception {
-
-        String expected = ArrayUtils.getMinMax(array).toString();
-
-        Arrays.sort(array);
-
-        int min = array[0];
-        int max = array[array.length - 1];
-
-        MinMaxPair pair = new MinMaxPair(min, max);
-
-        assertEquals(expected, pair.toString());
-    }
-
-    @Test
-    public void sortArray() throws Exception {
+    public void testSortArray() throws Exception {
+        int[] array = new int[]{4, -13, 0, 88, 1002, 750, -128};
         int[] actual = ArrayUtils.sortArray(array);
         Arrays.sort(array);
 
